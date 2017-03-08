@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Todo List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row *ngFor="let todo of todos" class="rowBorder">
+      <ion-col width-90>
+        <p>{{todo.todoname}}</p>
+        <i class="createdBy" item-left>{{todo.date}} af {{todo.createdBy}}</i>
+      </ion-col>
+      <ion-col width-10>
+        <button ion-button item-right color="danger" (click)="buttonClick()">
+          <ion-icon name="trash" *ngIf="todo.status"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

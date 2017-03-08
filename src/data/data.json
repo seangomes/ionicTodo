@@ -1,0 +1,44 @@
+{
+  "todos" : [ {
+    "createdBy" : "Sean",
+    "status" : "true",
+    "todoname" : "Vask tøj",
+    "date": "07-03-2017"
+  }, {
+    "createdBy" : "Sean",
+    "status" : "true",
+    "todoname" : "Vask Bil",
+    "date": "07-03-2017"
+  }, {
+    "createdBy" : "Nicoline",
+    "status" : "true",
+    "todoname" : "Gå med hunden",
+    "date": "07-03-2017"
+  }, {
+    "createdBy" : "Sean",
+    "status" : "true",
+    "todoname" : "Køb ind",
+    "date": "07-03-2017"
+  }, {
+    "createdBy" : "Sean",
+    "status" : "true",
+    "todoname" : "Skift pære i køkkenet",
+    "date": "07-03-2017"
+  }, {
+    "createdBy" : "Sean",
+    "status" : "true",
+    "todoname" : "Støvsuge",
+    "date": "07-03-2017"
+  } ],
+  "users" : [ {
+        "email": "seangomes86@hotmail.com",
+        "password" : "admin",
+        "username" : "sean"
+      },
+      {
+        "email": "blah86@hotmail.com",
+        "password" : "admin",
+        "username" : "nicoline"
+      }
+  ]
+}
