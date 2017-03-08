@@ -11,7 +11,6 @@ import { TodoApi } from './../../shared/todo-api.service';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  private baseUrl = ''; //Firebase link
   todos = [];
 
   constructor(public navCtrl: NavController, private http: Http, private todoService: TodoApi) {
