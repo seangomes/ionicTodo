@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { TodoApi } from '../../shared/todo-api.service';
 
 @Component({
   selector: 'page-addtodo',
@@ -8,13 +9,16 @@ import { NavController } from 'ionic-angular';
 
 export class AddtodoPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private todoService: TodoApi ) {
 
   }
 
-  todo : any = {}
+  addNewTodo(newTodo: string) {
 
-  addNewTodo(newTodo) {
+    if (newTodo) {
+      this.todoService.addTodo(newTodo);
+    }
+
     //firebase.database().ref('/').push({object json})
   }
 }

@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import {MomentModule} from 'angular2-moment';
 import { MyApp } from './app.component';
 import { firebaseConfig } from '../data/firebase.config';
 import { AngularFireModule } from 'angularfire2';
@@ -18,7 +19,8 @@ import { TabsPage } from '../pages/tabs/tabs';
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    MomentModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

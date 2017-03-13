@@ -9,14 +9,34 @@ export class TodoApi {
 
     constructor(private http: Http, private af: AngularFire) { }
 
-    
+    private todos$: FirebaseListObservable<any>;
 
     getTodos(): Observable<any> {
-        const todos$ : FirebaseListObservable<any> = this.af.database.list('todos');
-        return todos$;
+        this.todos$ = this.af.database.list('todos');
+        return this.todos$;
     }
 
-    deleteTodo(todo) {
-        
+    addTodo(newTodo:string) : Observable<any> {
+      
+      let date = new Date();
+
+      let todo = {
+        todoname: newTodo,
+        createdBy: 'Sean',
+        date: date.toString(),
+        status: true,
+      };
+      this.todos$.push(todo);
+      
+      return this.todos$;
     }
+
+    deleteTodo(todo:any) {
+        if(todo) {
+          let id =todo.$key
+          //this.af.database.list('todos', id).remove();
+        }
+    }
+
+
 }

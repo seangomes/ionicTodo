@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { NavController } from 'ionic-angular';
 import 'rxjs/add/operator/map'
 import { Observable } from 'rxjs/Rx';
+import {MomentModule} from 'angular2-moment';
 
 import { TodoApi } from './../../shared/todo-api.service';
 
@@ -20,11 +21,12 @@ export class HomePage {
   ionViewDidLoad() {
     this.todoService.getTodos().subscribe(data => {
       this.todos = data;
+      console.log(this.todos);
     });
   }
 
-  deleteTodo() {
-    
+  deleteTodo(todo:any) {
+    this.todoService.deleteTodo(todo);
   }
 
 }
