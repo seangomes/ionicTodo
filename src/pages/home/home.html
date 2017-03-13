@@ -7,12 +7,13 @@
 <ion-content padding>
   <ion-grid>
     <ion-row *ngFor="let todo of todos, let i = index" class="rowBorder">
-      <ion-col width-90>
-        <p>{{i + 1}} {{todo.todoname}}</p>
-        <i class="createdBy" item-left>{{todo.date | amDateFormat: 'DD-MM-YYYY'}} af {{todo.createdBy}}</i>
+      <ion-col width-80>
+        <p><ion-badge color="secondary">{{i + 1}}</ion-badge> {{todo.todoname}}</p>
+        <i class="createdBy" item-left><ion-icon name="clock"></ion-icon>  {{todo.date | amDateFormat: 'DD-MM-YYYY'}}</i><br>
+        <i><ion-icon name="contact"></ion-icon>  {{todo.createdBy}}</i>
       </ion-col>
-      <ion-col width-10>
-        <button ion-button item-right color="danger" (click)="deleteTodo(todo)">
+      <ion-col width-20>
+        <button ion-button item-right color="danger" class="deleteBtn" (click)="deleteTodo(todo.$key)">
           <ion-icon name="trash" *ngIf="todo.status"></ion-icon>
         </button>
       </ion-col>

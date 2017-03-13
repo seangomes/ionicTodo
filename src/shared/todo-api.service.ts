@@ -31,10 +31,9 @@ export class TodoApi {
       return this.todos$;
     }
 
-    deleteTodo(todo:any) {
-        if(todo) {
-          let id =todo.$key
-          //this.af.database.list('todos', id).remove();
+    deleteTodo(key:string) {
+        if(key) {
+          this.af.database.object(`/todos/${key}`).remove();
         }
     }
 

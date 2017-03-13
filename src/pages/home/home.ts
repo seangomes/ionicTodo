@@ -25,8 +25,8 @@ export class HomePage {
     });
   }
 
-  deleteTodo(todo:any) {
-    this.todoService.deleteTodo(todo);
+  deleteTodo(key:string) {
+    this.todoService.deleteTodo(key);
   }
 
 }
