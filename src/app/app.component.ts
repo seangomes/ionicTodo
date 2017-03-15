@@ -3,13 +3,15 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { TodoApi } from './../shared/todo-api.service';
+import { TodoApi } from './../providers/todo-api.service';
+import { AuthApi } from './../providers/auth-api-service';
 
 
 @Component({
   templateUrl: 'app.html',
   providers: [
-    TodoApi
+    TodoApi,
+    AuthApi
   ]
 })
 export class MyApp {

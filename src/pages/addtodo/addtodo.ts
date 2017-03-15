@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-import { TodoApi } from '../../shared/todo-api.service';
+import { TodoApi } from './../../providers/todo-api.service';
 
 @Component({
   selector: 'page-addtodo',
