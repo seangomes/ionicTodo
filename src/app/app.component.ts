@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
 
 import { TodoApi } from './../providers/todo-api.service';
 import { AuthApi } from './../providers/auth-api-service';
@@ -15,7 +15,7 @@ import { AuthApi } from './../providers/auth-api-service';
   ]
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage = LoginPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {

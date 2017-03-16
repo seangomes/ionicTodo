@@ -1,18 +1,50 @@
-<!--
-  Generated template for the Signup page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Signup</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
-
+  <!-- Create user -->
+    <div class="row marginTop">
+      <div class="col-md-4 col-md-offset-4 ">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <form>
+              <div class="col-md-12">
+                <h1 class="text-center">Create your new user</h1>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
+                  <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-lock"></i></span>
+                  <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
+                  <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-heart"></i></span>
+                  <select class="form-control" name="gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+                </div>
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-success loginBtn">Create me now!</button>
+              </div>
+              <div class="form-group">
+                <p class="text-center"><a [navPush]="loginPage">Back to login</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 </ion-content>
+

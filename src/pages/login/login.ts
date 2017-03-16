@@ -1,22 +1,32 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { SignupPage } from './../signup/signup';
+import { AuthApi } from './../../providers/auth-api-service';
 
-/*
-  Generated class for the Login page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  signupPage = SignupPage;
+  loading: Boolean = false;
+  error: String = '';
+  user : any = {};
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthApi) {}
+
+  login() {
+    this.loading = true;
+
+    
+    //this.authService.login(this.user.username, this.user.password).subscribe((result) => {
+    //  if (result) {
+    //    console.log("logged in " + this.user.username  )
+    //  }
+    //});
   }
+
+  
 
 }
