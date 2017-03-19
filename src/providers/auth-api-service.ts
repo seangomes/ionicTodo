@@ -10,15 +10,35 @@ export class AuthApi {
 
   private users$: FirebaseListObservable<any>;
 
+  private userList : any;
+
   constructor(public http: Http, private af: AngularFire) {
     this.users$ = this.af.database.list('users');
+    
+    this.users$.forEach(user => {
+      this.userList =user;
+    });
+
+    
   }
   
    
 
   currentUser: any = {};
 
-  login(username:string, password:string) {
+  login(user) {
+
+    if(user) {
+      let signedUser : User = {
+        id : user.id,
+        username : user.username,
+        email : '',
+        password : '?'
+      }
+
+      this.currentUser = signedUser;
+    }
+
     
   }
   

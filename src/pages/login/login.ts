@@ -19,6 +19,10 @@ export class LoginPage {
   login() {
     this.loading = true;
 
+    if(this.user.username && this.user.password){
+      return this.authService.login(this.user);
+    }
+
     
     //this.authService.login(this.user.username, this.user.password).subscribe((result) => {
     //  if (result) {
