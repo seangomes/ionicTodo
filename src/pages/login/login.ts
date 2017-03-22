@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SignupPage } from './../signup/signup';
 import { AuthApi } from './../../providers/auth-api-service';
+import { TodosPage } from './../todos/todos';
 
 @Component({
   selector: 'page-login',
@@ -20,7 +21,9 @@ export class LoginPage {
     this.loading = true;
 
     if(this.user.username && this.user.password){
-      return this.authService.login(this.user);
+      this.authService.login(this.user);
+
+      this.navCtrl.setRoot(TodosPage, this.user);
     }
 
     

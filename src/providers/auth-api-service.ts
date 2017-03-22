@@ -22,9 +22,7 @@ export class AuthApi {
     
   }
   
-   
-
-  currentUser: any = {};
+  currentUser: User;
 
   login(user) {
 
@@ -34,7 +32,7 @@ export class AuthApi {
         username : user.username,
         email : '',
         password : '?'
-      }
+      };
 
       this.currentUser = signedUser;
     }

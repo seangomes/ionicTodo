@@ -8,6 +8,7 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+import { TodosPage } from './../pages/todos/todos';
 import { AddtodoPage } from '../pages/addtodo/addtodo';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -23,6 +24,7 @@ import { TodoApi } from './../providers/todo-api.service';
     AddtodoPage,
     ContactPage,
     HomePage,
+    TodosPage,
     TabsPage,
     
   ],
@@ -39,6 +41,7 @@ import { TodoApi } from './../providers/todo-api.service';
     AddtodoPage,
     ContactPage,
     HomePage,
+    TodosPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthApi, TodoApi]
