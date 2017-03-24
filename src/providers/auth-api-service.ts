@@ -9,35 +9,42 @@ import 'rxjs/add/operator/map';
 export class AuthApi {
 
   private users$: FirebaseListObservable<any>;
-
-  private userList : any;
+  currentUser: User;
+  private userList: Array<User> = [];
 
   constructor(public http: Http, private af: AngularFire) {
     this.users$ = this.af.database.list('users');
-    
-    this.users$.forEach(user => {
-      this.userList =user;
-    });
 
-    
+    this.users$.forEach(items => {
+
+      items.forEach(item => {
+        let user: User = {
+          id: item.$key,
+          username: item.username,
+          email: item.email,
+          password: item.password
+        }
+        this.userList.push(user);
+      });
+    });
   }
   
-  currentUser: User;
 
   login(user) {
+    if (user) {
+      this.userList.forEach(x => {
+        if(x.username == user.username && x.password == user.password)
+        {
+          this.currentUser = x;
+          return this.currentUser;
+        }
+        else
+        {
+          return this.currentUser;
+        }  
 
-    if(user) {
-      let signedUser : User = {
-        id : user.id,
-        username : user.username,
-        email : '',
-        password : '?'
-      };
-
-      this.currentUser = signedUser;
+      });
     }
-
-    
   }
-  
+
 }
