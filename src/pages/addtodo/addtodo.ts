@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { TodosPage } from './../todos/todos';
 import { TodoApi } from './../../providers/todo-api.service';
 
 @Component({
@@ -47,5 +48,9 @@ export class AddtodoPage {
 
     toast.present();
     
+  }
+
+  backBtn() {
+    this.navCtrl.setRoot(TodosPage);
   }
 }

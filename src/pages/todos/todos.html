@@ -1,4 +1,29 @@
-<ion-header>
+<ion-content padding>
+
+  <div class="row">
+    <div class="panel panel-default" style="width: 100%">
+      <div class="panel-body">
+        <h2 class="text-center">Todo list <i (click)="addTodoPage()" class="glyphicon glyphicon-plus-sign pull-right" style="color: green"></i></h2>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngFor="let todo of todos, let i = index">
+    <div class="panel panel-default" style="width: 100%">
+      <div class="panel-body">
+        <i class="badge">{{i + 1}}</i> <span class="bagdeIcon">{{todo.todoname}}</span>
+      </div>
+      <div class="panel-footer">
+        <i class="createdBy" item-left><ion-icon name="clock"></ion-icon>  {{todo.date | amDateFormat: 'DD-MM-YYYY'}}</i>
+        <button class="btn btn-danger btn-sm pull-right" (click)="deleteTodo(todo.$key)"><i class="glyphicon glyphicon-trash" *ngIf="todo.status"></i></button><br>
+        <i><ion-icon name="contact"></ion-icon>  {{todo.createdBy}}</i>
+      </div>
+    </div>
+  </div>
+
+</ion-content>-->
+
+
+<!--<ion-header>
   <ion-navbar>
     <ion-title>Todo List</ion-title>
   </ion-navbar>
@@ -20,4 +45,4 @@
     </ion-row>
   </ion-grid>
 
-</ion-content>
+</ion-content>-->

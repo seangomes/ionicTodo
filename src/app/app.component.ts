@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { LoginPage } from '../pages/login/login';
+import { TodosPage } from '../pages/todos/todos';
 
 import { TodoApi } from './../providers/todo-api.service';
 import { AuthApi } from './../providers/auth-api-service';
@@ -15,8 +16,8 @@ import { AuthApi } from './../providers/auth-api-service';
   ]
 })
 export class MyApp {
-  rootPage = LoginPage;
-
+  //rootPage = LoginPage;
+  rootPage = TodosPage;
   constructor(platform: Platform) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

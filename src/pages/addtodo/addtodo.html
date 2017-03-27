@@ -1,4 +1,38 @@
-<ion-header>
+<ion-content padding>
+
+  <div class="row">
+    <div class="panel panel-default" style="width: 100%">
+      <div class="panel-body">
+        <h2 class="text-center"><i class="glyphicon glyphicon-arrow-left pull-left" (click)="backBtn()"></i> Add new todo</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row marginTop">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="panel panel-default">        
+        <div class="panel-body">
+          <form name="form">
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-edit"></i></span>
+                <input type="text" class="form-control" placeholder="Todoname" aria-describedby="basic-addon1" name="todoname" [(ngModel)]="newTodo">
+              </div>
+            </div>
+              <div class="form-group text-center">
+                <button class="btn btn-success loginBtn" (click)="addNewTodo(newTodo)">Add new todo!</button>
+              </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+
+
+</ion-content>-->
+
+
+<!--<ion-header>
 
   <ion-navbar>
     <ion-title>New todo</ion-title>
@@ -23,4 +57,4 @@
 
 
 
-</ion-content>
+</ion-content>-->

@@ -5,6 +5,9 @@ import 'rxjs/add/operator/map'
 import { Observable } from 'rxjs/Rx';
 import {MomentModule} from 'angular2-moment';
 
+//Pages
+import { AddtodoPage } from './../addtodo/addtodo';
+//Services
 import { TodoApi } from './../../providers/todo-api.service';
 
 @Component({
@@ -27,6 +30,10 @@ ionViewDidLoad() {
 
   deleteTodo(key:string) {
     this.todoService.deleteTodo(key);
+  }
+
+  addTodoPage() {
+    this.navCtrl.push(AddtodoPage);
   }
 
 }
