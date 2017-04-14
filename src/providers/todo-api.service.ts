@@ -3,13 +3,20 @@ import { Http, Response } from '@angular/http';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import 'rxjs/add/operator/map'
 import { Observable } from 'rxjs/Rx';
+import { AuthApi } from './auth-api-service';
+import { User } from './../models/User';
 
 @Injectable()
 export class TodoApi {
 
-    constructor(private http: Http, private af: AngularFire) { }
-
     private todos$: FirebaseListObservable<any>;
+    private currentUserInfo:User;
+
+    constructor(private af:AngularFire, private auth:AuthApi) {
+        this.currentUserInfo = auth.currentUserInfo;
+     }
+
+    
 
     getTodos(): Observable<any> {
         this.todos$ = this.af.database.list('todos');
@@ -22,7 +29,7 @@ export class TodoApi {
 
       let todo = {
         todoname: newTodo,
-        createdBy: 'Sean',
+        createdBy: this.currentUserInfo.username,
         date: date.toString(),
         status: true,
       };

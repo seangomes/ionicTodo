@@ -1,0 +1,102 @@
+<!--
+  Generated template for the Profile page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class="text-center">Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="row">
+    <div class="panel panel-default" style="width: 100%">
+      <div class="panel-body">
+        <div class="text-center">
+          <img height="100" width="100" src="http://www.freeiconspng.com/uploads/user-icon-png-person-user-profile-icon-20.png" alt="image"
+            class="img-circle">
+        </div>
+        <div style="margin-top:10px;">
+          <div class="text-center">
+            <h2>{{user.username}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--TAB PANES-->
+  <div class="row">
+    <div class="panel panel-default" style="width: 100%">
+      <div class="panel-body">
+        TABS
+      </div>
+    </div>
+  </div>
+  <!--Change Profile-->
+  <div class="row">
+    <div class="panel panel-default" style="width: 100%">
+      <div class="panel-body">
+        <h4>Change profile</h4>
+        <div class="col-md-12">
+          <form (ngSubmit)="f.form.valid && changeProfile(user.username, user.oldpassword, user.newpassword, user.gender)" #f="ngForm"
+            novalidate>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" name="username" placeholder="Username" aria-describedby="basic-addon1" required [(ngModel)]="user.username"
+                  #username="ngModel">
+              </div>
+              <!-- Username Validation -->
+              <div *ngIf="f.submitted && !username.valid" class="alert alert-danger validationTopMargin">
+                <div [hidden]="!username.errors.required">
+                  Username is required!
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" name="oldpassword" id="exampleInputPassword1" placeholder="Old Password" required
+                  [(ngModel)]="user.oldpassword" #oldpassword="ngModel">
+              </div>
+              <!-- Old Password Validation -->
+              <div *ngIf="f.submitted && !oldpassword.valid" class="alert alert-danger validationTopMargin">
+                <div [hidden]="!oldpassword.errors.required">
+                  Old password is required!
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" name="newpassword" id="exampleInputPassword1" placeholder="New Password" required
+                  [(ngModel)]="user.newpassword" #newpassword="ngModel">
+              </div>
+              <!-- New Password Validation -->
+              <div *ngIf="f.submitted && !newpassword.valid" class="alert alert-danger validationTopMargin">
+                <div [hidden]="!newpassword.errors.required">
+                  New password is required!
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-heart"></i></span>
+                <select class="form-control" name="gender" [(ngModel)]="user.gender" #gender="ngModel">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-default btn-success">Update profile</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

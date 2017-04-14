@@ -6,7 +6,7 @@ import { firebaseConfig } from '../data/firebase.config';
 import { AngularFireModule } from 'angularfire2';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
-import { ContactPage } from '../pages/contact/contact';
+import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { TodosPage } from './../pages/todos/todos';
 import { AddtodoPage } from '../pages/addtodo/addtodo';
@@ -22,11 +22,10 @@ import { TodoApi } from './../providers/todo-api.service';
     LoginPage,
     SignupPage,
     AddtodoPage,
-    ContactPage,
+    ProfilePage,
     HomePage,
     TodosPage,
     TabsPage,
-    
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -39,7 +38,7 @@ import { TodoApi } from './../providers/todo-api.service';
     LoginPage,
     SignupPage,
     AddtodoPage,
-    ContactPage,
+    ProfilePage,
     HomePage,
     TodosPage,
     TabsPage

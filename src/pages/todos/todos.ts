@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Http, Response } from '@angular/http';
-import 'rxjs/add/operator/map'
-import { Observable } from 'rxjs/Rx';
-import {MomentModule} from 'angular2-moment';
-
+import { User } from './../../models/User';
 //Pages
 import { AddtodoPage } from './../addtodo/addtodo';
 //Services
 import { TodoApi } from './../../providers/todo-api.service';
+import { AuthApi } from './../../providers/auth-api-service';
 
 @Component({
   selector: 'page-todos',
@@ -16,19 +13,21 @@ import { TodoApi } from './../../providers/todo-api.service';
 })
 export class TodosPage {
   todos = [];
-  user : any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: Http, private todoService: TodoApi) {
+  user: any;
+  currentUserInfo: User;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private todoService: TodoApi, private auth: AuthApi) {
     this.user = navParams.get('user');
   }
 
-ionViewDidLoad() {
+  ionViewDidLoad() {
     this.todoService.getTodos().subscribe(data => {
       this.todos = data;
-      console.log(this.todos);
+      //console.log(this.todos);
     });
   }
 
-  deleteTodo(key:string) {
+  deleteTodo(key: string) {
     this.todoService.deleteTodo(key);
   }
 

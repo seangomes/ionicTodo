@@ -16,36 +16,29 @@ export class LoginPage {
   error: String = '';
   user : any = {};
   currentUser: any;
+  isLoggedIn : Boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthApi) {}
 
-  login() {
-    this.loading = true;
 
-    if(this.user.username && this.user.password){
-      this.currentUser = this.authService.login(this.user);
-
-      if(this.currentUser)
-      {
-        this.navCtrl.setRoot(TodosPage, {user:this.currentUser});
-      }
-      else
-      {
-        this.error = 'Wrong username or password'
-      }
-
-      
+  login(email:string, password:string) {
+    this.error = '';
+    if(email !== undefined && password !== undefined)
+    {
+      this.authService.login(email,password)
+      .then((user) => {
+        this.navCtrl.setRoot(TodosPage, this.user);
+      })
+      .catch((error: any) => {
+        if (error) {
+          this.error = error;
+          console.log(this.error);
+        }
+      });
     }
-    else{
-      this.error = 'Wrong username or password'
+    else {
+      this.error = "Email and password required!";
     }
-
-    
-    //this.authService.login(this.user.username, this.user.password).subscribe((result) => {
-    //  if (result) {
-    //    console.log("logged in " + this.user.username  )
-    //  }
-    //});
   }
 
   
